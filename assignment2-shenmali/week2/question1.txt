@@ -1,0 +1,97 @@
+﻿1
+
+
+a)- Call by Value ve Call by Reference temelde iki farklı fonksiyon çağırma yöntemidir.
+
+
+Call by Value: 
+Tanımladığımız bir değişkenin kodun çalışması sonucu çıktı olarak başta tanımladığımız 
+değeri döndürme durumudur. Bunun nedeni fonksiyonun değişken için geçici bir nesne oluşturmasıdır. Geçici bir 
+nesne oluşturulduğunda bizim değişkenimize atadığımız değer geçici nesneye de atanır. Dolayısıyla fonksiyonun 
+parametresinin değeri ile bizim fonksiyona geçtiğimiz değişkenin değeri aynı olur. Fakat bu iki nesne aynı nesneler 
+değildir. Bellekte iki tane birbirinden farklı ancak aynı değere sahip nesne vardır. bu durum Call by Value
+(Değer ile çağırma)olarak adlandırılır.
+
+
+Call by Reference:
+Çağrılan program argüman olarak bir değer yerine bu değere ait bellek adresi gönderir. Böylece veri paylaşımı, 
+değerler yerine adreslerle gerçekleştirilir. Bu durumda argüman ile buna karşı gelen fonksiyon parametresi aynı 
+bellek alanını kullanır. Örnek olarak C dilinde fonksiyonlardan sadece bir veri tipi döndürülebilir. 
+Bunun için eğer ki fonksiyondan birden fazla değer döndürülecekse (mesela array) çözümü basittir.
+Dizinin bulunduğu adres Call By referance yoluyla dönüdülmelidir.
+
+
+Call by Value ve Call by Reference Farkları
+
+
+*Call by value avantajları
+-Parametre olarak geçilen ana değişkenler değişmez.
+-Takibatı ve debug yapması daha kolaydır.Ana değişkendeki değerleri değiştirmediği için fonksiyon içinde 
+ daha rahat geçici işlem vs yapılabilir.
+*Call by value Dezavantajları
+-Hafıza açısından verimli değildir.Aynı değişken için oluşturulmuş iki adet kopya vardır.
+
+*Call by reference avantajları
+-Fonksiyon argümanın değerini değiştirebilir.
+-Bellek alanından tasarruf etmenize yardımcı olur. Tek bir değeri tutmak için yinelenen veriler oluşturmaz.
+-Bu yöntemde işlem yapılan parametrenin bir kopyası yoktur. Bu nedenle çok hızlı işlenir.
+*Call by reference Dezavantajları
+-Referans alan bir fonksiyonunu parametresinin boş olmadığından emin olması gerekir.
+-Çok iş parçacıklı programlarla çalışırken tehlikelidir.
+-Takibatı ve debug’ı bi nebze daha zordur.
+--------------------------------------------------------------------------------------------------------------------------
+b) 
+
+Map:
+Kendisine parametre olarak gönderilen dizinin her bir elemanını belirlenen işleme tabi tutup yeni bir dizi 
+meydana getirir.Burada onemli olan yeni bir dizi dondurup filtrelenen diziyi yeni bir diziye atamasidir.
+
+
+Reduce:
+Dizinin her değeri için bir işlev yürüttükten sonra diziyi tek bir değere indirger.
+
+
+---------------------------------------------------------------------------------------------------------------------------
+c)
+
+Static Değişken:
+
+
+Bir fonksiyonun içerisinde bir statik değişken tanımladığımızda bu değişken ram bellekde bir kere oluşturulur ve değer 
+sürekli güncellenir.
+
+
+static $a = 5; -> static değişken
+
+
+
+
+
+
+
+
+Static Metod:
+
+
+function say                        
+{                                
+        static $a =5;
+echo $a . “<br />”;
+$a++;
+}
+say();
+say();
+
+
+Yukarıdaki kodumuzda eğer $a değişkenini static olarak tanımlamasaydık $a değişkenini “$a++” kısmında arttırmış
+olmamıza rağmen çıktımız aşağıdaki gibi olacaktı:
+5
+5
+
+
+Ancak değişkenimizi static olarak tanımladığımızda, değişkenimize atanan değer artık sistemde kaydedilmiştir. 
+Bundan sonra yapılacak işlemler kaydedilen mevcud değerin üzerinden yapılacağı için yukarıda kodumuzun çıktısı 
+değişkenimizi static olarak belirttiğimiz için  aşağıdaki gibi olacaktır.
+5
+6
+Yukarıdaki kod static metod kullanımına örnektir.
